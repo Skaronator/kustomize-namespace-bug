@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: the-bug
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    this-service-is-deployed-in-namespace: {{ .Release.Namespace }}
