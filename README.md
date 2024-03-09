@@ -21,6 +21,18 @@ helmCharts:
   valuesFile: values.yaml
 ```
 
+## Helm Chart Template
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: the-bug
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    this-service-is-deployed-in-namespace: {{ .Release.Namespace }}
+```
+
 ## Result
 
 ```yaml
@@ -31,5 +43,5 @@ metadata:
   annotations:
     this-service-is-deployed-in-namespace: default # <- {{ .Release.Namespace }} still points to "default"
   name: the-bug
-  namespace: the-actual-namespace                  # <- Namespace correctly set
+  namespace: the-actual-namespace                  # <- Namespace overwritten by Kustomization to the correct value
 ```
