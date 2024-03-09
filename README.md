@@ -1,5 +1,7 @@
 # Kustomize Namespace Bug
 
+Bug report: [kubernetes-sigs/kustomize#5566](https://github.com/kubernetes-sigs/kustomize/issues/5566)
+
 Kustomize doesn't pass down the namespace when defined on the top level. This causes inconsitent YAML files to be built.
 
 You can easily test it yourself by running `kustomize build . --enable-helm` in the root of this repository.
